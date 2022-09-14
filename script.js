@@ -30,8 +30,7 @@ const typeController = (e) => {
 	}
 
 	// these are the valid character we are allowing to type
-	const validLetters =
-		'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890!@#$%^&*()_+-={}[]\'".,?';
+	const validLetters =`abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890!@#$%^&*()_+-={}[]\'".,?`;
 
 	// if it is not a valid character like Control/Alt then skip displaying anything
 	if (!validLetters.includes(newLetter)) {
@@ -112,13 +111,14 @@ const start = () => {
 
 	const startCountdown = setInterval(() => {
 		countdownOverlay.innerHTML = `<h1>${count}</h1>`;
-
+    
 		// finished timer
 		if (count == 0) {
+			
 			// -------------- START TYPING -----------------
 			document.addEventListener('keydown', typeController);
-			countdownOverlay.style.display = 'flex';
-			display.classList.remove('inactive');
+			countdownOverlay.style.display = 'none';
+			display.classList.add('inactive');
 
 			clearInterval(startCountdown);
 			startTime = new Date().getTime();
