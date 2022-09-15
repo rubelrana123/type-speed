@@ -203,5 +203,16 @@ button {
     padding: 0 20px;
     width: 100%;
   }
- 
+  #histories{
+  display: grid;
+  grid-template-columns: 1fr ;
+  gap: 25px;
+}
+  .card {
+    display: flex;
+    flex-direction: column;
+
+
+    
+  }
 }
