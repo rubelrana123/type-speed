@@ -4,7 +4,9 @@ const startBtn = document.getElementById('starts');
 const countdownOverlay = document.getElementById('countdown');
 const resultModal = document.getElementById('result');
 const modalBackground = document.getElementById('modal-background');
-
+window.onkeydown = function (e) {
+	return !(e.keyCode == 32);
+};
 // variables
 let userText = '';
 let errorCount = 0;
@@ -97,10 +99,10 @@ console.log(word);
     <h1>Finished!</h1>
     <p>You Speed: <span class="bold green">${parseInt(
 			words_per_seconde
-		)}</span> seconds</p>
+		)}</span> WPM</p>
     <p>You took: <span class="bold">${parseInt(timeTaken)}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
-    <button onclick="closeModal()">Close</button>
+    <button class="modal-btn" onclick="closeModal()">Close</button>
   `;
   console.log(questionText, timeTaken, errorCount);
 	addHistory(questionText, timeTaken, errorCount, words_per_seconde);
