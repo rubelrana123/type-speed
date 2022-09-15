@@ -8,7 +8,9 @@ function addHistory(questionText, timeTaken, errorCount, words_per_seconde) {
 	newRow.innerHTML = `
   <h3>${questionText}</h3>
   <div>
-
+  <p>Your Speed: <span class="bold green">${parseInt(
+		words_per_seconde
+	)}</span> seconds</p>
   <p>You took: <span class="bold">${parseInt(timeTaken)}</span> seconds</p>
   <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
   </div>
