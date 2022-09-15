@@ -74,6 +74,16 @@ const gameOver = () => {
 	const finishTime = new Date().getTime();
 	const timeTaken = (finishTime - startTime) / 1000;
 
+	console.log(timeTaken);
+	console.log(questionText.length);
+const word = questionText.split(' ');
+console.log(word);
+
+	 let words_per_seconde = (word.length * 60) / timeTaken;
+
+	  words_per_seconde = Math.round(words_per_seconde * 1000) / 1000;
+	 console.log("wpm " + words_per_seconde)
+
 	// show result modal
 	resultModal.innerHTML = '';
 	resultModal.classList.toggle('hidden');
@@ -85,12 +95,15 @@ const gameOver = () => {
 	// show result
 	resultModal.innerHTML += `
     <h1>Finished!</h1>
+    <p>You Speed: <span class="bold green">${parseInt(
+			words_per_seconde
+		)}</span> seconds</p>
     <p>You took: <span class="bold">${parseInt(timeTaken)}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
   console.log(questionText, timeTaken, errorCount);
-	addHistory(questionText, timeTaken, errorCount);
+	addHistory(questionText, timeTaken, errorCount, words_per_seconde);
 
 	// restart everything
 	startTime = null;
